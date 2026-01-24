@@ -3,4 +3,4 @@ services:
     build:
       context: .
     ports:
-      - "18080:8080"
+      - "18080:80"
