@@ -17,7 +17,7 @@
   --accent: var(--ks-3);
   --shadow: 0 20px 60px rgba(14, 14, 14, 0.12);
 
-  --font-body: "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
   --font-display: "Reither Headline", "Playfair Display", ui-serif, Georgia, "Times New Roman", Times, serif;
   --radius: 18px;
 }
