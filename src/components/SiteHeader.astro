@@ -1,0 +1,90 @@
+---
+const nav = [
+  { href: '/', label: 'Accueil' },
+  { href: '/services', label: 'Services test' },
+  { href: '/realisations', label: 'Réalisations' },
+  { href: '/a-propos', label: 'À propos' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="header">
+  <div class="container inner">
+    <a class="brand" href="/" aria-label="Kaboo Studio">
+      <span class="logo" aria-hidden="true"></span>
+      <span>Kaboo Studio</span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation">
+      {nav.map((item) => (
+        <a class="link" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a class="btn btn-primary cta" href="/contact">Demander un devis</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.78);
+    border-bottom: 1px solid rgba(11, 16, 32, 0.12);
+  }
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 0;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+
+  .logo {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(0, 212, 255, 0.70));
+    box-shadow: 0 8px 24px rgba(124, 92, 255, 0.25);
+  }
+
+  .nav {
+    display: none;
+    gap: 1rem;
+  }
+
+  .link {
+    color: rgba(11, 16, 32, 0.78);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .link:hover {
+    color: rgba(11, 16, 32, 0.95);
+    text-decoration: none;
+  }
+
+  .cta {
+    white-space: nowrap;
+  }
+
+  @media (min-width: 820px) {
+    .nav { display: inline-flex; }
+  }
+
+  @media (max-width: 420px) {
+    .cta { padding-inline: 0.9rem; }
+  }
+</style>

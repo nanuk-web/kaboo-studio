@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const items = [
+  {
+    title: 'Landing page Kaboo Studio',
+    tag: 'Vitrine',
+    description: 'Une landing claire et rapide, avec sections clés et appels à l’action.',
+  },
+  {
+    title: 'Site artisan local',
+    tag: 'SEO',
+    description: 'Pages services + optimisation SEO de base + formulaire de contact.',
+  },
+  {
+    title: 'Portfolio créatif',
+    tag: 'Design',
+    description: 'Mise en avant des projets avec navigation simple et visuels optimisés.',
+  },
+];
+---
+
+<BaseLayout title="Réalisations — Kaboo Studio" description="Quelques exemples de réalisations (placeholders) pour démarrer le site vitrine.">
+  <section class="section">
+    <div class="container">
+      <span class="pill">Sélection</span>
+      <h1 class="h1">Réalisations</h1>
+      <p class="kicker">
+        Ajoutez ici vos vrais projets (captures, liens, résultats). Pour l’instant, ce sont des exemples pour structurer la
+        page.
+      </p>
+
+      <div class="grid cols">
+        {items.map((it) => (
+          <article class="card item">
+            <div class="meta">
+              <span class="pill">{it.tag}</span>
+            </div>
+            <h2 class="h2">{it.title}</h2>
+            <p class="kicker">{it.description}</p>
+            <div class="small">Astro • Statique • Performance</div>
+          </article>
+        ))}
+      </div>
+
+      <hr class="sep" />
+
+      <div class="card note">
+        <div>
+          <h2 class="h2">Prochaine étape</h2>
+          <p class="kicker">Ajoutez vos projets dans le tableau `items` ou remplacez par du contenu CMS plus tard.</p>
+        </div>
+        <a class="btn" href="/contact">Demander une démo</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .cols { grid-template-columns: 1fr; }
+    .item { padding: 1.25rem; }
+    .meta { margin-bottom: 0.75rem; }
+    .note {
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 860px) {
+      .cols { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</BaseLayout>

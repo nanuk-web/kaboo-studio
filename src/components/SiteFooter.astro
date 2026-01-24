@@ -1,0 +1,58 @@
+<footer class="footer">
+  <div class="container inner card">
+    <div>
+      <div class="brand">Kaboo Studio</div>
+      <div class="small">Agence web — sites vitrines, e-commerce, SEO & performance.</div>
+    </div>
+
+    <div class="links">
+      <a href="/services">Services</a>
+      <a href="/realisations">Réalisations</a>
+      <a href="/a-propos">À propos</a>
+      <a href="/contact">Contact</a>
+    </div>
+
+    <div class="small">© {new Date().getFullYear()} Kaboo Studio — Tous droits réservés.</div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 3rem 0 2rem;
+  }
+
+  .inner {
+    padding: 1.4rem;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .brand {
+    font-weight: 800;
+    margin-bottom: 0.35rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1rem;
+  }
+
+  .links a {
+    color: rgba(11, 16, 32, 0.76);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .links a:hover {
+    color: rgba(11, 16, 32, 0.95);
+    text-decoration: none;
+  }
+
+  @media (min-width: 860px) {
+    .inner {
+      grid-template-columns: 1.2fr 1fr auto;
+      align-items: center;
+    }
+  }
+</style>

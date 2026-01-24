@@ -1,0 +1,6 @@
+services:
+  kaboo-studio-site:
+    build:
+      context: .
+    ports:
+      - "18080:8080"

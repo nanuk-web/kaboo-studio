@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact — Kaboo Studio" description="Contactez Kaboo Studio pour un site vitrine statique et performant.">
+  <section class="section">
+    <div class="container">
+      <span class="pill">Discutons</span>
+      <h1 class="h1">Contact</h1>
+      <p class="kicker">Dites-nous ce que vous voulez construire. On répond rapidement.</p>
+
+      <div class="grid cols">
+        <form class="card form" method="post" action="#" onsubmit="return false;">
+          <label class="field">
+            <span>Nom</span>
+            <input type="text" name="name" placeholder="Votre nom" autocomplete="name" />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" placeholder="vous@exemple.com" autocomplete="email" />
+          </label>
+          <label class="field">
+            <span>Message</span>
+            <textarea name="message" rows="6" placeholder="Votre besoin, délais, budget…"></textarea>
+          </label>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Envoyer</button>
+            <span class="small">(Formulaire placeholder — à brancher sur un service plus tard)</span>
+          </div>
+        </form>
+
+        <aside class="card info">
+          <h2 class="h2">Infos</h2>
+          <p class="kicker">Ajoutez vos coordonnées ici.</p>
+          <ul class="list">
+            <li><strong>Email :</strong> contact@kaboo.studio</li>
+            <li><strong>Zone :</strong> Remote / France</li>
+            <li><strong>Délais :</strong> 1–3 semaines selon projet</li>
+          </ul>
+          <a class="btn" href="/services">Voir les services</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .cols { grid-template-columns: 1fr; align-items: start; }
+    .form { padding: 1.25rem; }
+    .info { padding: 1.25rem; }
+
+    .field {
+      display: grid;
+      gap: 0.35rem;
+      margin-bottom: 0.9rem;
+      color: rgba(11, 16, 32, 0.82);
+      font-weight: 600;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 0.9rem;
+      border-radius: 12px;
+      border: 1px solid rgba(11, 16, 32, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      color: rgba(11, 16, 32, 0.95);
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: rgba(124, 92, 255, 0.65);
+      box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .list {
+      padding-left: 1.1rem;
+      margin: 0.6rem 0 1.1rem;
+      color: rgba(11, 16, 32, 0.72);
+      line-height: 1.7;
+    }
+
+    @media (min-width: 900px) {
+      .cols { grid-template-columns: 1.2fr 0.8fr; }
+    }
+  </style>
+</BaseLayout>
