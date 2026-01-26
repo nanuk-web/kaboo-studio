@@ -36,6 +36,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<span class="sig">Kaboo Studio</span>
 				</p>
 
+				<button class="btn-beige" type="button" id="openFormBtn">
+					Nous contacter
+				</button>
+
 				<a
 					class="social"
 					href="https://www.facebook.com/kaboo.studio.web/"
@@ -51,6 +55,254 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</a>
 			</div>
 
+			<!-- Modal Popup -->
+			<div class="modal-overlay" id="contactModal">
+				<div class="modal-content">
+					<button class="modal-close" id="closeModal" aria-label="Fermer">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M18 6L6 18M6 6l12 12"/>
+						</svg>
+					</button>
+
+					<div class="modal-body">
+						<div class="form-intro">
+							<h2 class="h2">Questionnaire Kaboo — Demande d'accès</h2>
+							<p class="intro-text">
+								Cette demande d'accès permet de vérifier si l'approche Kaboo est la bonne pour vous.<br /><br />
+								Il n'y a aucune obligation, aucune vente automatique.<br /><br />
+								Prenez le temps de répondre avec sincérité.<br />
+								La clarté commence souvent ici.
+							</p>
+						</div>
+
+						<form id="kabooForm" class="kaboo-form">
+							<!-- Question 1 -->
+							<div class="form-group">
+								<label for="q1">
+									<span class="q-icon">🧭</span>
+									<span class="q-number">1.</span> Où en êtes-vous aujourd'hui avec votre site web ?
+								</label>
+								<p class="q-help">Qu'est-ce qui, en ce moment, ne vous ressemble plus dans votre site ou votre présence en ligne ?</p>
+								<textarea id="q1" name="q1" rows="4" required></textarea>
+							</div>
+
+							<!-- Question 2 -->
+							<div class="form-group">
+								<label>
+									<span class="q-icon">🧭</span>
+									<span class="q-number">2.</span> Depuis combien de temps ressentez-vous ce besoin de changement ?
+								</label>
+								<div class="radio-group">
+									<label class="radio-option">
+										<input type="radio" name="q2" value="quelques-mois" required />
+										<span>Depuis quelques mois</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q2" value="plus-un-an" />
+										<span>Depuis plus d'un an</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q2" value="longtemps" />
+										<span>Depuis longtemps, mais je repousse</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q2" value="jamais-satisfaite" />
+										<span>Je n'ai jamais vraiment été satisfaite</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Question 3 -->
+							<div class="form-group">
+								<label>
+									<span class="q-icon">🧭</span>
+									<span class="q-number">3.</span> Qu'est-ce qui vous pèse le plus aujourd'hui dans votre projet web ?
+								</label>
+								<p class="q-help">(Choisissez 2 maximum)</p>
+								<div class="checkbox-group">
+									<label class="checkbox-option">
+										<input type="checkbox" name="q3" value="manque-clarte" />
+										<span>Le manque de clarté dans le message</span>
+									</label>
+									<label class="checkbox-option">
+										<input type="checkbox" name="q3" value="decalage-image" />
+										<span>Le décalage entre mon image et mon niveau actuel</span>
+									</label>
+									<label class="checkbox-option">
+										<input type="checkbox" name="q3" value="charge-mentale" />
+										<span>La charge mentale que ça représente</span>
+									</label>
+									<label class="checkbox-option">
+										<input type="checkbox" name="q3" value="jamais-termine" />
+										<span>Le fait que rien ne soit jamais vraiment terminé</span>
+									</label>
+									<label class="checkbox-option">
+										<input type="checkbox" name="q3" value="peur-refaire" />
+										<span>La peur de refaire un projet lourd ou flou</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Question 4 -->
+							<div class="form-group">
+								<label for="q4">
+									<span class="q-icon">🧭</span>
+									<span class="q-number">4.</span> Si votre site était clair, aligné et terminé, qu'est-ce que ça changerait pour vous ?
+								</label>
+								<p class="q-help">Décrivez simplement ce que ça libérerait dans votre quotidien ou votre entreprise.</p>
+								<textarea id="q4" name="q4" rows="4" required></textarea>
+							</div>
+
+							<!-- Question 5 -->
+							<div class="form-group">
+								<label>
+									<span class="q-icon">🧭</span>
+									<span class="q-number">5.</span> Quelle phrase décrit le mieux votre intention en ce moment ?
+								</label>
+								<div class="radio-group">
+									<label class="radio-option">
+										<input type="radio" name="q5" value="clarifier" required />
+										<span>J'ai besoin de clarifier avant d'aller plus loin</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q5" value="coherent" />
+										<span>J'ai besoin que tout soit enfin cohérent</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q5" value="termine" />
+										<span>J'ai besoin que ce soit terminé, pour de bon</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Question 6 -->
+							<div class="form-group">
+								<label>
+									<span class="q-icon">🧭</span>
+									<span class="q-number">6.</span> Comment préférez-vous être accompagnée ?
+								</label>
+								<div class="radio-group">
+									<label class="radio-option">
+										<input type="radio" name="q6" value="cadre-clair" required />
+										<span>Avec un cadre clair et des décisions guidées</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q6" value="flexibilite" />
+										<span>Avec beaucoup de flexibilité et d'itérations</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q6" value="ne-sais-pas" />
+										<span>Je ne sais pas encore</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Question 7 -->
+							<div class="form-group">
+								<label>
+									<span class="q-icon">🧭</span>
+									<span class="q-number">7.</span> Êtes-vous prête à investir dans une expérience structurée et finie ?
+								</label>
+								<div class="radio-group">
+									<label class="radio-option">
+										<input type="radio" name="q7" value="oui-serieux" required />
+										<span>Oui, je cherche un accompagnement sérieux</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q7" value="oui-questions" />
+										<span>Oui, mais j'ai encore des questions</span>
+									</label>
+									<label class="radio-option">
+										<input type="radio" name="q7" value="ne-sais-pas" />
+										<span>Je ne sais pas encore</span>
+									</label>
+								</div>
+							</div>
+
+							<!-- Question 8 - Informations de contact -->
+							<div class="form-group">
+								<label>
+									<span class="q-icon">🧭</span>
+									<span class="q-number">8.</span> Informations de contact
+								</label>
+								<div class="contact-fields">
+									<div class="field-row">
+										<div class="field">
+											<label for="prenom">Prénom *</label>
+											<input type="text" id="prenom" name="prenom" autocomplete="given-name" required />
+										</div>
+										<div class="field">
+											<label for="nom">Nom *</label>
+											<input type="text" id="nom" name="nom" autocomplete="family-name" required />
+										</div>
+									</div>
+									<div class="field">
+										<label for="entreprise">Entreprise</label>
+										<input type="text" id="entreprise" name="entreprise" autocomplete="organization" />
+									</div>
+									<div class="field-row">
+										<div class="field">
+											<label for="email">Courriel *</label>
+											<input type="email" id="email" name="email" autocomplete="email" required />
+										</div>
+										<div class="field">
+											<label for="telephone">Téléphone *</label>
+											<input
+												type="tel"
+												id="telephone"
+												name="telephone"
+												autocomplete="tel"
+												inputmode="tel"
+												placeholder="(819) 238-3137"
+												required
+											/>
+											<input type="hidden" id="telephone_e164" name="telephone_e164" />
+										</div>
+									</div>
+									<div class="field">
+										<label for="site">Site actuel (si existant)</label>
+										<input type="url" id="site" name="site" autocomplete="url" placeholder="https://" />
+									</div>
+								</div>
+							</div>
+
+							<!-- Honeypot field (hidden) -->
+							<div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+								<label for="website_url">Ne pas remplir ce champ</label>
+								<input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off" />
+							</div>
+
+							<div class="form-consent">
+								<label class="checkbox-option consent-option">
+									<input type="checkbox" id="consent_contact" name="consent_contact" value="yes" required />
+									<span>
+										J'accepte d'être contactée par Kaboo Studio par courriel, téléphone ou message texte (SMS).
+									</span>
+								</label>
+							</div>
+
+							<div class="form-actions">
+								<button type="submit" class="btn-beige" id="submitBtn">Envoyer ma demande</button>
+							</div>
+						</form>
+
+						<div id="kabooSuccess" class="kaboo-success" hidden aria-live="polite">
+							<div class="form-footer success-footer">
+								<p>
+									<strong>Merci pour votre confiance.</strong><br /><br />
+									Chaque demande est lue avec attention.<br /><br />
+									Si l'approche Kaboo correspond à votre situation actuelle,<br />
+									vous serez contactée pour une courte conversation exploratoire.<br /><br />
+									Dans le cas contraire, nous vous répondrons avec transparence.
+								</p>
+							</div>
+							<div class="form-actions">
+								<button type="button" class="btn-beige" id="successCloseBtn">Fermer</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<p class="small foot">© {new Date().getFullYear()} Kaboo Studio</p>
 		</div>
 	</section>
@@ -188,5 +440,638 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			margin-top: 0.35rem;
 			opacity: 0.9;
 		}
+
+		/* Bouton Beige Style */
+		.btn-beige {
+			appearance: none;
+			-webkit-appearance: none;
+			border: 1px solid #c8b38a;
+			border-radius: 14px;
+			padding: 14px 34px;
+			min-width: 280px;
+			font: 600 22px/1.1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+			color: #7a7368;
+			background: linear-gradient(
+				to bottom,
+				#eee4cf 0%,
+				#dccaa6 45%,
+				#cfb78f 100%
+			);
+			box-shadow:
+				0 8px 12px rgba(0,0,0,0.22),
+				0 2px 0 rgba(255,255,255,0.6) inset,
+				0 -2px 0 rgba(0,0,0,0.08) inset;
+			text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+			cursor: pointer;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 1.5rem;
+		}
+
+		.btn-beige:hover {
+			background: linear-gradient(
+				to bottom,
+				#f2ead8 0%,
+				#e1d0ad 45%,
+				#d3bc95 100%
+			);
+		}
+
+		.btn-beige:active {
+			transform: translateY(1px);
+			background: linear-gradient(
+				to bottom,
+				#d3bc95 0%,
+				#dccaa6 55%,
+				#eee4cf 100%
+			);
+			box-shadow:
+				0 6px 9px rgba(0,0,0,0.22),
+				0 2px 0 rgba(255,255,255,0.4) inset,
+				0 -2px 0 rgba(0,0,0,0.12) inset;
+		}
+
+		/* Modal Styles */
+		.modal-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(14, 14, 14, 0.75);
+			backdrop-filter: blur(8px);
+			z-index: 1000;
+			overflow-y: auto;
+			padding: 2rem 1rem;
+			align-items: flex-start;
+			justify-content: center;
+		}
+
+		.modal-overlay.active {
+			display: flex;
+		}
+
+		.modal-content {
+			position: relative;
+			width: min(800px, 100%);
+			background: linear-gradient(180deg, rgba(245, 245, 245, 0.98), rgba(245, 245, 245, 0.95));
+			backdrop-filter: blur(20px);
+			border-radius: 20px;
+			border: 1px solid rgba(14, 14, 14, 0.16);
+			box-shadow: 0 30px 80px rgba(14, 14, 14, 0.25);
+			margin: auto;
+			animation: modalSlideIn 0.3s ease-out;
+			text-align: left;
+		}
+
+		@keyframes modalSlideIn {
+			from {
+				opacity: 0;
+				transform: translateY(-20px) scale(0.95);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0) scale(1);
+			}
+		}
+
+		.modal-close {
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			width: 40px;
+			height: 40px;
+			border: 1px solid rgba(14, 14, 14, 0.16);
+			background: rgba(245, 245, 245, 0.95);
+			border-radius: 10px;
+			color: rgba(14, 14, 14, 0.86);
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 10;
+			transition: all 0.2s;
+		}
+
+		.modal-close:hover {
+			background: rgba(227, 184, 27, 0.15);
+			border-color: rgba(227, 184, 27, 0.45);
+		}
+
+		.modal-body {
+			padding: clamp(1.5rem, 4vw, 3rem);
+			max-height: calc(100vh - 4rem);
+			overflow-y: auto;
+		}
+
+		/* Form Styles */
+		.form-intro {
+			text-align: center;
+			margin-bottom: 2.5rem;
+			padding-bottom: 2rem;
+			border-bottom: 1px solid rgba(14, 14, 14, 0.12);
+		}
+
+		.form-intro .h2 {
+			font-size: clamp(1.5rem, 3vw, 2.2rem);
+			margin-bottom: 1rem;
+		}
+
+		.intro-text {
+			font-size: 1.05rem;
+			line-height: 1.7;
+			color: var(--muted);
+		}
+
+		.kaboo-form {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.form-group {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+		}
+
+		.form-group > label {
+			font-weight: 600;
+			font-size: 1.1rem;
+			color: rgba(14, 14, 14, 0.92);
+			display: flex;
+			align-items: baseline;
+			gap: 0.5rem;
+			line-height: 1.5;
+		}
+
+		.q-icon {
+			flex-shrink: 0;
+		}
+
+		.q-number {
+			flex-shrink: 0;
+		}
+
+		.q-help {
+			font-size: 0.95rem;
+			color: var(--muted);
+			margin: -0.25rem 0 0.25rem 0;
+			font-style: italic;
+		}
+
+		textarea,
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="url"] {
+			width: 100%;
+			padding: 0.85rem 1rem;
+			border: 1px solid rgba(14, 14, 14, 0.2);
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.8);
+			font-family: var(--font-body);
+			font-size: 1rem;
+			color: var(--text);
+			resize: vertical;
+			transition: all 0.2s;
+		}
+
+		textarea:focus,
+		input:focus {
+			outline: none;
+			border-color: rgba(227, 184, 27, 0.6);
+			box-shadow: 0 0 0 3px rgba(227, 184, 27, 0.1);
+		}
+
+		.radio-group,
+		.checkbox-group {
+			display: flex;
+			flex-direction: column;
+			gap: 0.6rem;
+			padding-left: 0.5rem;
+		}
+
+		.radio-option,
+		.checkbox-option {
+			display: flex;
+			align-items: center;
+			gap: 0.75rem;
+			padding: 0.7rem 1rem;
+			border: 1px solid rgba(14, 14, 14, 0.12);
+			background: rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+			cursor: pointer;
+			transition: all 0.2s;
+			font-weight: 500;
+		}
+
+		.radio-option:hover,
+		.checkbox-option:hover {
+			background: rgba(227, 184, 27, 0.08);
+			border-color: rgba(227, 184, 27, 0.3);
+		}
+
+		.radio-option input[type="radio"],
+		.checkbox-option input[type="checkbox"] {
+			width: auto;
+			cursor: pointer;
+			accent-color: #c8b38a;
+		}
+
+		.contact-fields {
+			display: grid;
+			gap: 1rem;
+		}
+
+		.field-row {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+
+		.field {
+			display: flex;
+			flex-direction: column;
+			gap: 0.4rem;
+		}
+
+		.field label {
+			font-size: 0.95rem;
+			font-weight: 500;
+			color: rgba(14, 14, 14, 0.82);
+		}
+
+		.form-actions {
+			display: flex;
+			justify-content: center;
+			padding-top: 1rem;
+		}
+
+		.form-consent {
+			display: flex;
+			justify-content: center;
+			padding-top: 1.25rem;
+		}
+
+		.consent-option {
+			max-width: 640px;
+			width: 100%;
+			text-align: left;
+		}
+
+		.form-footer {
+			text-align: center;
+			padding-top: 2rem;
+			border-top: 1px solid rgba(14, 14, 14, 0.12);
+			color: var(--muted);
+			line-height: 1.7;
+			font-size: 0.98rem;
+		}
+
+		.form-footer strong {
+			color: rgba(14, 14, 14, 0.92);
+		}
+
+		.kaboo-success {
+			padding-top: 0.25rem;
+		}
+
+		.success-footer {
+			border-top: 0;
+			padding-top: 0;
+		}
+
+		/* Responsive adjustments */
+		@media (max-width: 768px) {
+			.btn-beige {
+				min-width: 240px;
+				font-size: 18px;
+				padding: 12px 28px;
+			}
+
+			.modal-body {
+				padding: 1.5rem;
+			}
+
+			.field-row {
+				grid-template-columns: 1fr;
+			}
+
+			.form-group > label {
+				font-size: 1rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.modal-overlay {
+				padding: 0.5rem;
+			}
+
+			.modal-body {
+				padding-top: 3.75rem;
+			}
+
+			.btn-beige {
+				min-width: 200px;
+				font-size: 16px;
+			}
+		}
 	</style>
+
+	<script>
+		const openBtn = document.getElementById('openFormBtn') as HTMLButtonElement | null;
+		const closeBtn = document.getElementById('closeModal') as HTMLButtonElement | null;
+		const modal = document.getElementById('contactModal') as HTMLDivElement | null;
+		const formIntro = document.querySelector('#contactModal .form-intro') as HTMLDivElement | null;
+		const form = document.getElementById('kabooForm') as HTMLFormElement | null;
+		const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+		const successPanel = document.getElementById('kabooSuccess') as HTMLDivElement | null;
+		const successCloseBtn = document.getElementById('successCloseBtn') as HTMLButtonElement | null;
+		const phoneInput = document.getElementById('telephone') as HTMLInputElement | null;
+		const phoneE164Input = document.getElementById('telephone_e164') as HTMLInputElement | null;
+
+		const STORAGE_KEY = 'kaboo-form-data';
+		const SUBMISSION_KEY = 'kaboo-last-submission';
+		const RATE_LIMIT_MINUTES = 5;
+		const MIN_FORM_TIME = 10;
+		const WEBHOOK_URL = 'https://n8n.nanukweb.ca/webhook/e4da5f30-3031-40c5-a426-2fdebb69a638';
+
+		let formOpenedAt = 0;
+
+		const normalizePhone = (raw: string) => {
+			const onlyDigits = String(raw || '').replace(/\D/g, '');
+			let digits = onlyDigits;
+			if (digits.startsWith('1') && digits.length >= 1) digits = digits.slice(1);
+			digits = digits.slice(0, 10);
+			if (digits.length !== 10) return { valid: false, digits10: '', e164: '', formatted: '' };
+			// NANP: area code + exchange cannot start with 0/1
+			if (digits[0] === '0' || digits[0] === '1' || digits[3] === '0' || digits[3] === '1') {
+				return { valid: false, digits10: '', e164: '', formatted: '' };
+			}
+			const formatted = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+			return { valid: true, digits10: digits, e164: `1${digits}`, formatted };
+		};
+
+		const formatPhoneAsYouType = (raw: string) => {
+			let digits = String(raw || '').replace(/\D/g, '');
+			if (digits.startsWith('1') && digits.length >= 1) digits = digits.slice(1);
+			digits = digits.slice(0, 10);
+			if (!digits) return '';
+			if (digits.length <= 3) return `(${digits}`;
+			if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+			return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+		};
+
+		const syncPhoneFields = ({ strict = false } = {}) => {
+			if (!phoneInput || !phoneE164Input) return { valid: true };
+			const inputEl: HTMLInputElement = phoneInput;
+			const e164El: HTMLInputElement = phoneE164Input;
+			const normalized = normalizePhone(inputEl.value);
+
+			if (strict) {
+				if (!normalized.valid) {
+					inputEl.setCustomValidity('Veuillez entrer un numéro valide à 10 chiffres (Canada/USA).');
+					e164El.value = '';
+					return { valid: false };
+				}
+				inputEl.setCustomValidity('');
+				inputEl.value = normalized.formatted;
+				e164El.value = normalized.e164;
+				return { valid: true };
+			}
+
+			inputEl.setCustomValidity('');
+			inputEl.value = formatPhoneAsYouType(inputEl.value);
+			e164El.value = normalized.valid ? normalized.e164 : '';
+			return { valid: normalized.valid };
+		};
+
+		const canSubmit = () => {
+			const last = localStorage.getItem(SUBMISSION_KEY);
+			if (last) {
+				const minutesSince = (Date.now() - Number(last)) / 1000 / 60;
+				if (minutesSince < RATE_LIMIT_MINUTES) {
+					const remaining = Math.ceil(RATE_LIMIT_MINUTES - minutesSince);
+					return {
+						allowed: false,
+						message: `Pour éviter les abus, veuillez attendre ${remaining} minute${remaining > 1 ? 's' : ''} avant de soumettre une nouvelle demande.`,
+					};
+				}
+			}
+
+			const seconds = (Date.now() - formOpenedAt) / 1000;
+			if (seconds < MIN_FORM_TIME) {
+				return { allowed: false, message: 'Veuillez prendre le temps de remplir le formulaire correctement.' };
+			}
+			return { allowed: true };
+		};
+
+		const saveFormData = () => {
+			if (!form) return;
+			const payload: Record<string, any> = {};
+			form
+				.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>(
+					'input[type="text"], input[type="email"], input[type="url"], input[type="tel"], textarea'
+				)
+				.forEach((el) => {
+					if (!el.name) return;
+					if (el.value) payload[el.name] = el.value;
+				});
+			form.querySelectorAll<HTMLInputElement>('input[type="radio"]:checked').forEach((el) => {
+				if (!el.name) return;
+				payload[el.name] = el.value;
+			});
+			const checkedQ3 = Array.from(form.querySelectorAll<HTMLInputElement>('input[name="q3"]:checked')).map(
+				(el) => el.value
+			);
+			if (checkedQ3.length) payload.q3 = checkedQ3;
+			form.querySelectorAll<HTMLInputElement>('input[type="checkbox"]').forEach((el) => {
+				if (!el.name || el.name === 'q3') return;
+				payload[el.name] = el.checked;
+			});
+			localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+		};
+
+		const restoreFormData = () => {
+			if (!form) return;
+			const saved = localStorage.getItem(STORAGE_KEY);
+			if (!saved) return;
+			try {
+				const payload = JSON.parse(saved) as Record<string, any>;
+				Object.keys(payload).forEach((key: string) => {
+					if (key === 'q3') return;
+					const field = form.querySelector<HTMLInputElement | HTMLTextAreaElement>(`[name="${key}"]`);
+					if (!field) return;
+					if (field.type === 'radio') {
+						const radio = form.querySelector<HTMLInputElement>(
+							`input[name="${key}"][value="${payload[key]}"]`
+						);
+						if (radio) radio.checked = true;
+						return;
+					}
+					if (field.type === 'checkbox') {
+						(field as HTMLInputElement).checked = Boolean(payload[key]);
+						return;
+					}
+					field.value = payload[key];
+				});
+				if (Array.isArray(payload.q3)) {
+					payload.q3.forEach((value: string) => {
+						const checkbox = form.querySelector<HTMLInputElement>(
+							`input[name="q3"][value="${value}"]`
+						);
+						if (checkbox) checkbox.checked = true;
+					});
+				}
+				syncPhoneFields({ strict: false });
+			} catch (e) {
+				console.error('Error restoring form data:', e);
+			}
+		};
+
+		const clearFormData = () => localStorage.removeItem(STORAGE_KEY);
+		const resetModalState = () => {
+			if (formIntro) formIntro.style.display = '';
+			if (form) form.style.display = '';
+			if (successPanel) successPanel.hidden = true;
+		};
+		const showSuccessState = () => {
+			if (formIntro) formIntro.style.display = 'none';
+			if (form) form.style.display = 'none';
+			if (successPanel) successPanel.hidden = false;
+			successCloseBtn?.focus();
+		};
+		const closeModal = () => {
+			modal?.classList.remove('active');
+			document.body.style.overflow = '';
+		};
+
+		openBtn?.addEventListener('click', () => {
+			resetModalState();
+			modal?.classList.add('active');
+			document.body.style.overflow = 'hidden';
+			formOpenedAt = Date.now();
+			restoreFormData();
+		});
+
+		successCloseBtn?.addEventListener('click', closeModal);
+
+		closeBtn?.addEventListener('click', closeModal);
+		modal?.addEventListener('click', (e) => {
+			if (e.target === modal) closeModal();
+		});
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && modal?.classList.contains('active')) closeModal();
+		});
+
+		if (form) {
+			form.addEventListener('input', () => {
+				syncPhoneFields({ strict: false });
+				saveFormData();
+			});
+			form.addEventListener('change', () => {
+				syncPhoneFields({ strict: false });
+				saveFormData();
+			});
+		}
+
+		phoneInput?.addEventListener('blur', () => {
+			syncPhoneFields({ strict: true });
+		});
+
+		document.querySelectorAll<HTMLInputElement>('input[name="q3"]').forEach((checkbox) => {
+			checkbox.addEventListener('change', () => {
+				const checked = document.querySelectorAll('input[name="q3"]:checked');
+				if (checked.length > 2) {
+					checkbox.checked = false;
+					alert('Vous ne pouvez sélectionner que 2 options maximum.');
+				}
+			});
+		});
+
+		form?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			if (!form) return;
+
+			const honeypot = form.querySelector<HTMLInputElement>('input[name="website_url"]')?.value;
+			if (honeypot) {
+				form.reset();
+				closeModal();
+				return;
+			}
+
+			const phoneResult = syncPhoneFields({ strict: true });
+			if (!phoneResult.valid) {
+				phoneInput?.reportValidity();
+				phoneInput?.focus();
+				return;
+			}
+
+			const rate = canSubmit();
+			if (!rate.allowed) {
+				alert(rate.message);
+				return;
+			}
+
+			const q3Checked = document.querySelectorAll('input[name="q3"]:checked');
+			if (q3Checked.length === 0) {
+				alert('Veuillez sélectionner au moins une option pour la question 3.');
+				return;
+			}
+
+			const consentChecked = form.querySelector<HTMLInputElement>('input[name="consent_contact"]')?.checked;
+			if (!consentChecked) {
+				alert("Veuillez accepter d'être contactée pour soumettre la demande.");
+				return;
+			}
+
+			if (submitBtn) {
+				submitBtn.disabled = true;
+				submitBtn.textContent = 'Envoi en cours...';
+			}
+
+			const fd = new FormData(form);
+			const data: Record<string, any> = {};
+			const q3Values = fd.getAll('q3').map((v) => String(v));
+			fd.forEach((value, key) => {
+				if (key === 'q3' || key === 'website_url') return;
+				data[key] = value;
+			});
+			data.q3 = q3Values;
+
+			// enforce phone formats
+			const normalized = normalizePhone(data.telephone);
+			if (normalized.valid) {
+				data.telephone = normalized.formatted;
+				data.telephone_e164 = normalized.e164;
+			}
+
+			data.submitted_at = new Date().toISOString();
+			data.form_fill_time = Math.round((Date.now() - formOpenedAt) / 1000);
+
+			try {
+				const response = await fetch(WEBHOOK_URL, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify(data),
+				});
+				if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+				localStorage.setItem(SUBMISSION_KEY, String(Date.now()));
+				clearFormData();
+				form.reset();
+				showSuccessState();
+			} catch (error) {
+				console.error('Error submitting form:', error);
+				alert("Une erreur est survenue lors de l'envoi du formulaire. Veuillez réessayer.");
+			} finally {
+				if (submitBtn) {
+					submitBtn.disabled = false;
+					submitBtn.textContent = 'Envoyer ma demande';
+				}
+			}
+		});
+	</script>
 </BaseLayout>
