@@ -3,6 +3,9 @@ dist/
 # generated types
 .astro/
 
+# local email templates
+email-templates/*.html
+
 # dependencies
 node_modules/
 

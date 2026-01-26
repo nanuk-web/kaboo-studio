@@ -680,7 +680,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		.btn-beige {
 			appearance: none;
 			-webkit-appearance: none;
-			border: 1px solid #c8b38a;
+			border: 1px solid rgba(227, 184, 27, 0.55);
 			border-radius: 14px;
 			padding: 14px 34px;
 			min-width: 280px;
@@ -691,18 +691,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 				Roboto,
 				Arial,
 				sans-serif;
-			color: #7a7368;
+			color: rgba(58, 58, 58, 0.88);
 			background: linear-gradient(
 				to bottom,
-				#eee4cf 0%,
-				#dccaa6 45%,
-				#cfb78f 100%
+				rgba(245, 245, 245, 0.98) 0%,
+				rgba(245, 245, 245, 0.92) 45%,
+				rgba(191, 195, 199, 0.65) 100%
 			);
 			box-shadow:
-				0 8px 12px rgba(0, 0, 0, 0.22),
-				0 2px 0 rgba(255, 255, 255, 0.6) inset,
-				0 -2px 0 rgba(0, 0, 0, 0.08) inset;
-			text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+				0 8px 12px rgba(14, 14, 14, 0.22),
+				0 2px 0 rgba(245, 245, 245, 0.6) inset,
+				0 -2px 0 rgba(14, 14, 14, 0.08) inset;
+			text-shadow: 0 1px 0 rgba(245, 245, 245, 0.7);
 			cursor: pointer;
 			display: inline-flex;
 			align-items: center;
@@ -713,24 +713,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		.btn-beige:hover {
 			background: linear-gradient(
 				to bottom,
-				#f2ead8 0%,
-				#e1d0ad 45%,
-				#d3bc95 100%
+				rgba(245, 245, 245, 0.98) 0%,
+				rgba(245, 245, 245, 0.90) 45%,
+				rgba(227, 184, 27, 0.22) 100%
 			);
+			border-color: rgba(227, 184, 27, 0.75);
 		}
 
 		.btn-beige:active {
 			transform: translateY(1px);
 			background: linear-gradient(
 				to bottom,
-				#d3bc95 0%,
-				#dccaa6 55%,
-				#eee4cf 100%
+				rgba(191, 195, 199, 0.70) 0%,
+				rgba(245, 245, 245, 0.92) 55%,
+				rgba(245, 245, 245, 0.98) 100%
 			);
 			box-shadow:
-				0 6px 9px rgba(0, 0, 0, 0.22),
-				0 2px 0 rgba(255, 255, 255, 0.4) inset,
-				0 -2px 0 rgba(0, 0, 0, 0.12) inset;
+				0 6px 9px rgba(14, 14, 14, 0.22),
+				0 2px 0 rgba(245, 245, 245, 0.4) inset,
+				0 -2px 0 rgba(14, 14, 14, 0.12) inset;
 		}
 
 		/* Modal Styles */
@@ -876,7 +877,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			padding: 0.85rem 1rem;
 			border: 1px solid rgba(14, 14, 14, 0.2);
 			border-radius: 10px;
-			background: rgba(255, 255, 255, 0.8);
+			background: rgba(245, 245, 245, 0.8);
 			font-family: var(--font-body);
 			font-size: 1rem;
 			color: var(--text);
@@ -906,7 +907,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			gap: 0.75rem;
 			padding: 0.7rem 1rem;
 			border: 1px solid rgba(14, 14, 14, 0.12);
-			background: rgba(255, 255, 255, 0.5);
+			background: rgba(245, 245, 245, 0.5);
 			border-radius: 10px;
 			cursor: pointer;
 			transition: all 0.2s;
@@ -923,7 +924,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 		.checkbox-option input[type="checkbox"] {
 			width: auto;
 			cursor: pointer;
-			accent-color: #c8b38a;
+			accent-color: var(--accent);
 		}
 
 		.contact-fields {

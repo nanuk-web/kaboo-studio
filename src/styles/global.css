@@ -112,7 +112,7 @@ body {
   background:
     radial-gradient(1200px 700px at 18% 10%, rgba(227, 184, 27, 0.14), transparent 58%),
     radial-gradient(900px 600px at 80% 18%, rgba(191, 195, 199, 0.18), transparent 55%),
-    linear-gradient(180deg, #ffffff, var(--bg));
+    linear-gradient(180deg, var(--ks-1), var(--bg));
 }
 
 body::before {
@@ -163,8 +163,8 @@ a:hover { text-decoration: underline; }
   gap: 0.5rem;
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: rgba(11, 16, 32, 0.04);
-  border: 1px solid rgba(11, 16, 32, 0.10);
+  background: rgba(14, 14, 14, 0.04);
+  border: 1px solid rgba(14, 14, 14, 0.10);
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -226,6 +226,6 @@ a:hover { text-decoration: underline; }
 hr.sep {
   border: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(11,16,32,0.18), transparent);
+  background: linear-gradient(90deg, transparent, rgba(14, 14, 14, 0.18), transparent);
   margin: 2rem 0;
 }
