@@ -11,6 +11,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 	<section class="wrap">
 		<div class="container inner">
 			<div class="card panel">
+				<img
+					class="panel-logo"
+					src="/kaboo-studio-logo.svg"
+					alt="Kaboo Studio"
+				/>
 				<span class="pill">Nous arrivons bientôt</span>
 				<h1 class="h1">Kaboo Studio arrive bientôt.</h1>
 				<p class="kicker intro">
@@ -587,6 +592,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			backdrop-filter: blur(10px);
 		}
 
+		.panel-logo {
+			display: block;
+			width: min(220px, 52%);
+			height: auto;
+			margin: 0 auto 1rem;
+		}
+
 		.pill {
 			background: rgba(227, 184, 27, 0.12);
 			border-color: rgba(227, 184, 27, 0.32);
@@ -714,7 +726,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			background: linear-gradient(
 				to bottom,
 				rgba(245, 245, 245, 0.98) 0%,
-				rgba(245, 245, 245, 0.90) 45%,
+				rgba(245, 245, 245, 0.9) 45%,
 				rgba(227, 184, 27, 0.22) 100%
 			);
 			border-color: rgba(227, 184, 27, 0.75);
@@ -724,7 +736,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 			transform: translateY(1px);
 			background: linear-gradient(
 				to bottom,
-				rgba(191, 195, 199, 0.70) 0%,
+				rgba(191, 195, 199, 0.7) 0%,
 				rgba(245, 245, 245, 0.92) 55%,
 				rgba(245, 245, 245, 0.98) 100%
 			);
